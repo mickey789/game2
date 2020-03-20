@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <time.h>
+#include "randomdice.h"
 using namespace sf;
 
 int w = 1920;
@@ -10,27 +11,38 @@ int main() {
 
 	Texture t1, t2;
 	t1.loadFromFile("images/M.jpg");
-	t2.loadFromFile("images/tiles.png");
+	
 
 	Sprite sprite1(t1);
 	Sprite sprite2(t2);
-
-
+	
+	Texture t3;
+	t3.loadFromFile("images/S.jpg");
+	Sprite sprite3(t3);
+	
+	window.draw(sprite1);
+	window.display();
 
 	while (window.isOpen()) {
-		Vector2i pos = Mouse::getPosition(window);
 
-		window.draw(sprite1);
-		sprite2.setPosition(500, 500);
-		window.draw(sprite2);
-		window.display();
-
+		
 		Event e;
 		while (window.pollEvent(e)) {
 			if (e.type == Event::Closed)
 				window.close();
-			if (e.type == Event::MouseButtonPressed)
-				window.clear(Color::White);
+			else if (Keyboard::isKeyPressed(Keyboard::Space)) 
+			{
+				window.clear();
+				window.draw(sprite3);
+				window.display();
+				
+			}		
+			if (Keyboard::isKeyPressed(Keyboard::Up))
+			
+				
+			
+				
+				
 
 		}
 
