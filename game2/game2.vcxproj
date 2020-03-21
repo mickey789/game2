@@ -146,9 +146,6 @@
   <ItemGroup>
     <ClCompile Include="Wmain.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="randomdice.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
