@@ -7,42 +7,54 @@
 using namespace std;
 using namespace sf;
 
+	
 int w = 1920;
 int h = 1080;
 
-char randomDice()
-{
+char randomDice() {
 	srand(time(0));
-	int x = rand()%2+1;
-	switch (x)
+	int n = rand() % 6 + 1;
+	switch (n)
 	{
-	case 1:
-		return  'A';
+	case 1 :
+		return 'A';
 	case 2:
-		return  'B';
+		return 'B';
+	case 3:
+		return 'C';
+	case 4:
+		return 'D';
+	case 5:
+		return 'E';
+	case 6:
+		return 'F';
+
 	}
-	
 }
 
 
 	
 
+
 int main() {
 	RenderWindow window(VideoMode(w, h), "Mouses'Fest");
-
-	Texture t1, t2;
+	Texture t1;
 	t1.loadFromFile("images/M.jpg");
-	t2.loadFromFile("images/red.png");
-
 	Sprite sprite1(t1);
+	Texture t2;
+	t2.loadFromFile("images/S.jpg");
 	Sprite sprite2(t2);
-
 	Texture t3;
-	t3.loadFromFile("images/S.jpg");
+	t3.loadFromFile("images/ds.jpg");
 	Sprite sprite3(t3);
-
+	Texture t4;
+	t4.loadFromFile("images/d.jpg");
+	Sprite sprite4(t4);
 	window.draw(sprite1);
 	window.display();
+	
+
+	
 
 	while (window.isOpen())
 	{
@@ -52,12 +64,19 @@ int main() {
 				window.close();
 			else if (Keyboard::isKeyPressed(Keyboard::Space))
 			{
+				
 				window.clear();
-				window.draw(sprite3);
+				window.draw(sprite2);
 				window.display();
 			}
-			else if (Keyboard::isKeyPressed(Keyboard::Enter))
-			{
+			else if (Keyboard::isKeyPressed(Keyboard::R)) {
+				
+				randomDice();
+			
+				
+			}
+			/*else if (Keyboard::isKeyPressed(Keyboard::Enter))
+			{*/
 				/*char n = randomDice();
 				if (n == 'A')
 				{
@@ -69,7 +88,7 @@ int main() {
 					window.clear();
 					window.display();
 				}*/
-				float i = 0, j = 900;
+				/*float i = 0, j = 900;
 				for (int k = 0; k < 300; k++) {
 
 					sprite2.setPosition(i, j);
@@ -77,9 +96,9 @@ int main() {
 					window.draw(sprite2);
 					window.display();
 					j -= 3;
-					i += 3;
+					i += 3;*/
 
-				}
+				//}
 				/*float i = 0, j = 900;
 				for (int k = 0; k < 300; k++) {
 
@@ -119,7 +138,7 @@ int main() {
 
 
 			}
-			}
+			
 	}
 return 0;
 }
